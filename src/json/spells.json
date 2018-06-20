@@ -1,0 +1,86 @@
+[
+    {
+        "name": "Огненный шар",
+        "HPValue": -50,
+        "scatter": 0.1,
+        "image": {
+            "url": "./src/images/spells/fireball/texture.png",
+            "width": 85,
+            "height": 55
+        },
+        "iconUrl": "./src/images/spells/fireball/icon.png",
+        "cooldown": 0,
+        "requiredLevel": 1,
+        "direction": "target-front"
+    },
+    {
+        "name": "Ледяная стрела",
+        "HPValue": -50,
+        "scatter": 0.4,
+        "image": {
+            "url": "./src/images/spells/frostbolt/texture.png",
+            "width": 105,
+            "height": 40
+        },
+        "iconUrl": "./src/images/spells/frostbolt/icon.png",
+        "cooldown": 0,
+        "requiredLevel": 3,
+        "direction": "target-front"
+    },
+    {
+        "name": "Исцеление",
+        "HPValue": 80,
+        "scatter": 0.05,
+        "image": {
+            "url": "./src/images/spells/heal/texture.png",
+            "width": 200,
+            "height": 200
+        },
+        "iconUrl": "./src/images/spells/heal/icon.png",
+        "cooldown": 1,
+        "requiredLevel": 5,
+        "direction": "self"
+    },
+    {
+        "name": "Копьё молнии",
+        "HPValue": -120,
+        "scatter": 0.2,
+        "image": {
+            "url": "./src/images/spells/lightning-lance/texture.png",
+            "width": 140,
+            "height": 29
+        },
+        "iconUrl": "./src/images/spells/lightning-lance/icon.png",
+        "cooldown": 2,
+        "requiredLevel": 1,
+        "direction": "target-front"
+    },
+    {
+        "name": "Волна исцеления",
+        "HPValue": 150,
+        "scatter": 0.08,
+        "image": {
+            "url": "./src/images/spells/healing-wave/texture.png",
+            "width": 200,
+            "height": 200
+        },
+        "iconUrl": "./src/images/spells/healing-wave/icon.png",
+        "cooldown": 4,
+        "requiredLevel": 1,
+        "direction": "self"
+    },
+    {
+        "name": "Гроза",
+        "HPValue": -150,
+        "scatter": 0.05,
+        "image": {
+            "url": "./src/images/spells/thunder/texture.png",
+            "width": 190,
+            "height": 800
+        },
+        "iconUrl": "./src/images/spells/thunder/icon.png",
+        "cooldown": 4,
+        "requiredLevel": 1,
+        "direction": "target-above"
+    }
+]

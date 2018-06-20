@@ -1,0 +1,28 @@
+[{
+    "name" : "mathematicalOperations",
+    "description" : "Реши данный пример. "
+},
+{
+    "name" : "translation",
+    "description" : "Переведи данное слово на английский язык: ",
+    "words" : [
+        {
+            "inputWord" : "Cat",
+            "translation" : ["кот","кошка","котик","котенок","котёнок"]
+        },
+        {
+            "inputWord" : "Dog",
+            "translation" : ["собака","собачка","песик","пёс","пёсик"]
+        }
+    ]},
+{
+    "name" : "speech",
+    "description" : " Введи слово, которое ты услышал(а) ",
+    "words" : ["dog","cat","hello","green","car","sky","spoon","plate","recognition","question","task"]
+},
+{
+    "name" : "dragAndDrop",
+    "description" : " Составь слово из данных букв",
+    "words" : ["yellow","dog","cat","people","fish"]
+}
+]
