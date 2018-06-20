@@ -7,7 +7,6 @@ import Enemy from './Enemy.js';
 import ParallaxBackground from './ParallaxBackground.js';
 import RecordsEngine from './RecordsEngine.js';
 import QuestionsEngine from './QuestionsEngine.js';
-import {Howl, Howler} from "howler";
 
 export default class Game {
     constructor(DOMNode) {        
