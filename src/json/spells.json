@@ -52,7 +52,7 @@
         },
         "iconUrl": "./src/images/spells/lightning-lance/icon.png",
         "cooldown": 2,
-        "requiredLevel": 1,
+        "requiredLevel": 10,
         "direction": "target-front"
     },
     {
@@ -66,7 +66,7 @@
         },
         "iconUrl": "./src/images/spells/healing-wave/icon.png",
         "cooldown": 4,
-        "requiredLevel": 1,
+        "requiredLevel": 15,
         "direction": "self"
     },
     {
@@ -80,7 +80,7 @@
         },
         "iconUrl": "./src/images/spells/thunder/icon.png",
         "cooldown": 4,
-        "requiredLevel": 1,
+        "requiredLevel": 20,
         "direction": "target-above"
     }
 ]
