@@ -78,8 +78,7 @@ export default class Enemy {
         else availableSpells = availableSpells.reduce((acc, el) => {if (el.HPValue < 0) acc.push(el); return acc;}, []);
         let index = Math.floor(availableSpells.length * Math.random());
         choosenSpell = availableSpells[index >= availableSpells.length ? index-1 : index];
-        this.spells.useSpell(5, this.level, callback);
-        //this.spells.getSpellsData(true).indexOf(choosenSpell)
+        this.spells.useSpell(this.spells.getSpellsData(true).indexOf(choosenSpell), this.level, callback);
     }
 
     stopCasting() {
