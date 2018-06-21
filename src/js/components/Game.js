@@ -7,6 +7,9 @@ import Enemy from './Enemy.js';
 import ParallaxBackground from './ParallaxBackground.js';
 import RecordsEngine from './RecordsEngine.js';
 import QuestionsEngine from './QuestionsEngine.js';
+import Music from './Music.js';
+import Sound from './Sound.js';
+import {createSoundObj} from './../utils.js';
 
 export default class Game {
     constructor(DOMNode) {        
@@ -24,7 +27,13 @@ export default class Game {
 
     load() {
         window.speechSynthesis.getVoices();
-        this.loader.onReady(() => {this.start()});
+        this.loader.onReady(() => {
+            const loader = $('.game-block__loader');
+            loader.fadeTo(1000, 0, () => {
+                loader.remove();
+                this.start();
+            })
+        });
         this.httpClient.get("spells").then(data => {window.resources.spellsList = data; this.jsonLoaded++; if (this.jsonLoaded === 4) this.loader.load();});
         this.httpClient.get("enemyNames").then(data => {window.resources.enemyNames = data; this.jsonLoaded++; if (this.jsonLoaded === 4) this.loader.load();});
         this.httpClient.get("imagesUrl").then(data => {
@@ -44,16 +53,23 @@ export default class Game {
     }
 
     start() {
+        window.resources.music = new Music(window.resources.audio.music.map((el) => {
+            return this.loader.get(el);
+        }));
+        window.resources.sound = new Sound(createSoundObj({"ui": window.resources.audio.ui, "spells": window.resources.audio.spells}, this.loader));
+        window.resources.sound.init();
+        window.resources.music.play();
         let backgroundMarkup = this.background.init().fadeTo(0, 0);
         let startBlock = $('<div></div>').addClass('start-block').fadeTo(0, 0),
             startBlockLogo = $('<p></p>').addClass('start-block__logo').text("intellimagic"),
             startBlockButton = $('<button></button>').addClass('start-block__button').text('старт').click(()=>{
+                window.resources.sound.play("ui", "click");
                 startBlock.fadeTo(1000, 0, ()=>{startBlock.remove(); this.showCharSettings()});
                 startBlockButton.off("click");
             });
         startBlockButton.css({
             "background-image": `url(./src/images/ui/buttons.png)`
-        });
+        }).mouseenter(() => window.resources.sound.play("ui", "hover"));
         startBlock.append(startBlockLogo).append(startBlockButton);
         this.mainBlock.append(backgroundMarkup).append(startBlock);
         this.background.animate();
@@ -90,18 +106,22 @@ export default class Game {
         let currentChar = 0;
         image.css({"background-image": `url(${window.resources.chars[currentChar]})`});
         const leftButton = $(`#button-left`).click(() => {
+            window.resources.sound.play("ui", "click");
             currentChar--;
             if (currentChar < 0) currentChar = window.resources.chars.length-1;
             image.css({"background-image": `url(${window.resources.chars[currentChar]})`});
-        }).css({"background-image": "url(./src/images/ui/buttons.png)"});
+        }).css({"background-image": "url(./src/images/ui/buttons.png)"}).mouseenter(() => window.resources.sound.play("ui", "hover"));
         const rightButton = $(`#button-right`).click(() => {
+            window.resources.sound.play("ui", "click");
             currentChar++;
             if (currentChar > window.resources.chars.length-1) currentChar = 0;
             image.css({"background-image": `url(${window.resources.chars[currentChar]})`});
-        }).css({"background-image": "url(./src/images/ui/buttons.png)"});
+        }).css({"background-image": "url(./src/images/ui/buttons.png)"}).mouseenter(() => window.resources.sound.play("ui", "hover"));
         const submitButton = $("#submit");
         submitButton.css({"background-image": "url(./src/images/ui/buttons.png)"})
-        submitButton.click(() => {
+        submitButton.mouseenter(() => window.resources.sound.play("ui", "hover"));
+        submitButton.click(() => {  
+            window.resources.sound.play("ui", "click");
             const name = $("#name-input").val();
             if (/^[a-zA-Zа-яА-Я0-9_\-.]{2,18}$/.test(name)) {
                 submitButton.off('click'); 

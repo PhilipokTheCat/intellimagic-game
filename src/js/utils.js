@@ -17,10 +17,23 @@ export function createPathArrayFromResources() {
 
 export function createPathAudioArray() {
     const arr = [];
-    window.resources.audio.forEach((el) => {
+    window.resources.audio.music.forEach((el) => {
         arr.push(el);
     });
+    for (let i of Object.values(window.resources.audio.ui)) arr.push(i);
+    for (let i of Object.values(window.resources.audio.spells)) arr.push(i.start, i.end);
     return arr;
+}
+
+export function createSoundObj(obj, loader) {
+    for (let i in obj.ui) {
+        obj.ui[i] = loader.get(obj.ui[i]);
+    }
+    for (let i in obj.spells) {
+        obj.spells[i].start = loader.get(obj.spells[i].start);
+        obj.spells[i].end = loader.get(obj.spells[i].end);
+    }
+    return obj;
 }
 
 export function calculateLevelScale(amount, multiplier, level) {

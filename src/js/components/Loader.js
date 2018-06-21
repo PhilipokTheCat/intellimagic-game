@@ -1,41 +1,51 @@
 import {createPathArrayFromResources, createPathAudioArray} from './../utils.js';
 import $ from "jquery";
+import {Howler, Howl} from 'howler';
 
 export default class Loader {
     constructor() {
         this.resourceCache = {};
-        this.loading = [];
         this.readyCallback = null;
+        this.maxLoadCount = 2;
+        this.currentLoadCount = 0;
     }
 
-    load() {
-        const pathArray = createPathArrayFromResources();
-        //const audioArray = createPathAudioArray();
-        //audioArray.forEach((el) => {this._load(el, true)});
-        pathArray.forEach((el) => {this._load(el)});
-    }
-
-    _load(url, isAudio) {
-        let obj = isAudio ? new Audio() : new Image();
-        obj.addEventListener(isAudio ? 'canplay' : 'load', () => {
-            this.resourceCache[url] = obj;
-            if (this.isReady()) {
-                const loader = $(".game-block__loader");
-                loader.fadeTo(500, 0, () => {loader.remove(); this.readyCallback();});
-            }
-        });
-        this.resourceCache[url] = false;
-        obj.src = url;
+    load(){
+        const imagesArray = createPathArrayFromResources();
+        imagesArray.forEach((el) => {this._loadImage(el)});
+        const audioArray = createPathAudioArray();
+        audioArray.forEach((el) => {this._loadAudio(el)});
     }
 
     get(url) {
         return this.resourceCache[url];
     }
 
+    _loadImage(url) {
+        let img = new Image();
+        img.addEventListener('load', () => {
+            this.resourceCache[url] = img;
+            if (this.isReady()) this.readyCallback()
+        });
+        this.resourceCache[url] = false;
+        img.src = url;
+    }
+
+    _loadAudio(url) {
+        let audio = new Howl({
+            src: url,
+            onload: () => {
+                this.resourceCache[url] = audio;
+                if (this.isReady()) this.readyCallback();
+            }
+        });
+        this.resourceCache[url] = false;
+    }
+
     isReady() {
         let ready = true;
-        for (let imageNode in this.resourceCache)
-            if (this.resourceCache.hasOwnProperty(imageNode) && !this.resourceCache[imageNode]) 
+        for (let node in this.resourceCache)
+            if (this.resourceCache.hasOwnProperty(node) && !this.resourceCache[node]) 
                 ready = false;
         return ready;
     }

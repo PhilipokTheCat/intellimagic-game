@@ -10,6 +10,7 @@ export default class Spell {
         this.cooldown = json.cooldown; 
         this.requiredLevel = json.requiredLevel;
         this.direction = json.direction;
+        this.sound = json.sound;
         this.currentCooldown = 0;
     }
 

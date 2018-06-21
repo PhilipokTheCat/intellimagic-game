@@ -11,7 +11,8 @@
         "iconUrl": "./src/images/spells/fireball/icon.png",
         "cooldown": 0,
         "requiredLevel": 1,
-        "direction": "target-front"
+        "direction": "target-front",
+        "sound": "fireball"
     },
     {
         "name": "Ледяная стрела",
@@ -25,7 +26,8 @@
         "iconUrl": "./src/images/spells/frostbolt/icon.png",
         "cooldown": 0,
         "requiredLevel": 3,
-        "direction": "target-front"
+        "direction": "target-front",
+        "sound": "frostbolt"
     },
     {
         "name": "Исцеление",
@@ -39,7 +41,8 @@
         "iconUrl": "./src/images/spells/heal/icon.png",
         "cooldown": 1,
         "requiredLevel": 5,
-        "direction": "self"
+        "direction": "self",
+        "sound": "heal"
     },
     {
         "name": "Копьё молнии",
@@ -53,7 +56,8 @@
         "iconUrl": "./src/images/spells/lightning-lance/icon.png",
         "cooldown": 2,
         "requiredLevel": 10,
-        "direction": "target-front"
+        "direction": "target-front",
+        "sound": "lightbolt"
     },
     {
         "name": "Волна исцеления",
@@ -67,7 +71,8 @@
         "iconUrl": "./src/images/spells/healing-wave/icon.png",
         "cooldown": 4,
         "requiredLevel": 15,
-        "direction": "self"
+        "direction": "self",
+        "sound": "greaterHeal"
     },
     {
         "name": "Гроза",
@@ -81,6 +86,7 @@
         "iconUrl": "./src/images/spells/thunder/icon.png",
         "cooldown": 4,
         "requiredLevel": 20,
-        "direction": "target-above"
+        "direction": "target-above",
+        "sound": "thunder"
     }
 ]

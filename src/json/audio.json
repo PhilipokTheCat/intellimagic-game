@@ -1,24 +1,43 @@
-[
-    "./src/audio/music/1.mp3",
-    "./src/audio/music/2.mp3",
-    "./src/audio/music/3.mp3",
-    "./src/audio/music/4.mp3",
-    "./src/audio/music/5.mp3",
-    "./src/audio/music/6.mp3",
-    "./src/audio/music/7.mp3",
-    "./src/audio/music/8.mp3",
-    "./src/audio/button-click.ogg",
-    "./src/audio/button-hover.ogg",
-    "./src/audio/modal-show.ogg",
-    "./src/audio/fireball-start.ogg",
-    "./src/audio/fireball-end.ogg",
-    "./src/audio/frostbolt-start.ogg",
-    "./src/audio/frostbolt-end.ogg",
-    "./src/audio/heal-start.ogg",
-    "./src/audio/heal-end.ogg",
-    "./src/audio/greaterheal-end.ogg",
-    "./src/audio/lightbolt-start.ogg",
-    "./src/audio/lightbolt-end.ogg",
-    "./src/audio/thunder-start.ogg",
-    "./src/audio/thunder-end.ogg"
-]
+{
+    "music": [
+        "./src/audio/music/1.mp3",
+        "./src/audio/music/2.mp3",
+        "./src/audio/music/3.mp3",
+        "./src/audio/music/4.mp3",
+        "./src/audio/music/5.mp3",
+        "./src/audio/music/6.mp3",
+        "./src/audio/music/7.mp3",
+        "./src/audio/music/8.mp3"
+    ],
+    "ui": {
+        "hover": "./src/audio/button-hover.ogg",
+        "click": "./src/audio/button-click.ogg",
+        "show": "./src/audio/modal-show.ogg"
+    },
+    "spells": {
+        "fireball": {
+            "start": "./src/audio/fireball-start.ogg",
+            "end": "./src/audio/fireball-end.ogg"
+        },
+        "frostbolt": {
+            "start": "./src/audio/frostbolt-start.ogg",
+            "end": "./src/audio/frostbolt-end.ogg"
+        },
+        "heal": {
+            "start": "./src/audio/heal-start.ogg",
+            "end": "./src/audio/heal-end.ogg"
+        },
+        "greaterHeal": {
+            "start": "./src/audio/heal-start.ogg",
+            "end": "./src/audio/greaterheal-end.ogg"
+        },
+        "lightbolt": {
+            "start": "./src/audio/lightbolt-start.ogg",
+            "end": "./src/audio/lightbolt-end.ogg"
+        },
+        "thunder": {
+            "start": "./src/audio/thunder-start.ogg",
+            "end": "./src/audio/thunder-end.ogg"
+        }
+    }
+}

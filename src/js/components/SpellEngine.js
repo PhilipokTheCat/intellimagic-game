@@ -65,9 +65,11 @@ export default class SpellEngine {
         });
         if (!this.user.isPlayer) spellDisplay.css({"transform": "scaleX(-1)"});
         $(".main-window").append(spellDisplay);
+        window.resources.sound.play("spells", spell.sound, "start");
         spellDisplay.fadeTo(200, 1).transition({
             "left": `${calcLeft + ((this.user.isPlayer) ? 800 : -800)}px`
-        }, 1000, "easeInQuad").fadeTo(100, 0, () => {
+        }, 700, "easeInQuad").fadeTo(100, 0, () => {
+            window.resources.sound.play("spells", spell.sound, "end");
             spellDisplay.remove();
             callback(this.user, amountHP);
         });
@@ -81,6 +83,8 @@ export default class SpellEngine {
             "background-image": `url(${spell.imageUrl})`,
         });
         display.append(spellDisplay);
+        window.resources.sound.play("spells", spell.sound, "start");
+        window.resources.sound.play("spells", spell.sound, "end");
         spellDisplay.fadeTo(500, 1).delay(750).fadeTo(500, 0, () => {
             spellDisplay.remove();
             callback(this.user, amountHP, true);
@@ -99,6 +103,8 @@ export default class SpellEngine {
         });
         if (!this.user.isPlayer) spellDisplay.css({"transform": "scaleX(-1)"});
         $(".main-window").append(spellDisplay);
+        window.resources.sound.play("spells", spell.sound, "start");
+        window.resources.sound.play("spells", spell.sound, "end");
         spellDisplay.fadeTo(100, 1).delay(400).fadeTo(1000, 0, () => {
             spellDisplay.remove();
             callback(this.user, amountHP);

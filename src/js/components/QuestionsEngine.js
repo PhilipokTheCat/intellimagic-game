@@ -37,7 +37,8 @@ export default class QuestionsEngine{
         $(`.answer-window__input-data`).css({"background-image": "url(./src/images/ui/windows.png)"}).focus().keypress(
             (e) => {if (e.which === 13) $(`.answer-window__answer-button`).click();}
         );
-        $(`.answer-window__answer-button`).css({"background-image": "url(./src/images/ui/buttons.png)"});
+        $(`.answer-window__answer-button`).css({"background-image": "url(./src/images/ui/buttons.png)"}).mouseenter(
+            () => window.resources.sound.play("ui", "hover"));
     }
 
     showQuestionText(){
@@ -116,6 +117,7 @@ export default class QuestionsEngine{
     checkAnswer(){
         const button = $(".answer-window__answer-button");
         button.click(() =>{
+            window.resources.sound.play("ui", "click");
             button.prop("disabled", true);
             button.off("click");
             let currentEnteredData = $('.answer-window__input-data').val();
@@ -172,9 +174,10 @@ export default class QuestionsEngine{
             this.isWordSaid = true;
         }
         $(".answer-window__repeat-button").click(() =>{
+            window.resources.sound.play("ui", "click");
             $(".answer-window__repeat-button").prop("disabled", true);
             this.speak();
-        });
+        }).mouseenter(() => window.resources.sound.play("ui", "hover"));
         this.chosenWord = window.resources.questions[2].words[this.chosenWordId];
     }
 
