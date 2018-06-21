@@ -60,6 +60,24 @@
     }
 }
 
+@keyframes spin-left {
+    0% { 
+        transform: rotate(0deg); 
+    }
+    100% { 
+        transform: rotate(-360deg); 
+    }
+}
+  
+@keyframes spin-right {
+    0% { 
+        transform: rotate(0deg); 
+    }
+    100% { 
+        transform: rotate(360deg); 
+    }
+}
+
 $base-width: 1365px;
 $base-height: 768px;
 $base-font-family: 'Neucha', 'Arial';
@@ -110,6 +128,55 @@ body {
     border: 5px solid #000;
     background-color: #000;
     overflow: hidden;
+
+    &__loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 350px;
+        height: 350px;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+    &__circle {
+
+        &:nth-child(1){
+            width: 100%;
+            height: 100%;
+            border: 20px solid #000;
+            position: absolute;
+            border-radius: 50%;
+            border-right: 20px solid #9b59b6;
+            border-left: 20px solid #3498db;
+            animation: spin-right 2s linear infinite;
+        }
+
+        &:nth-child(2){
+            width: 75%;
+            height: 75%;
+            border: 20px solid #000;
+            position: absolute;
+            border-radius: 50%;
+            border-bottom: 20px solid #e67e22;
+            border-top: 20px solid #f1c40f;
+            animation: spin-left 1s linear infinite;
+        }
+
+        &:nth-child(3){
+            width: 50%;
+            height: 50%;
+            border: 20px solid #000;
+            position: absolute;
+            border-radius: 50%;
+            border-top: 20px solid #2ecc71;
+            animation: spin-right 1s linear infinite;
+        }
+
+    }
 }
 
 .start-block {
@@ -564,6 +631,7 @@ body {
         text-align: center;
         margin-top: 11px;
         color: #9D6;
+        text-transform: uppercase;
     }
 
     &__spells-list {

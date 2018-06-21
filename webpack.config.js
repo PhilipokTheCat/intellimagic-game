@@ -6,7 +6,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "bundle.js",
-        publicPath: "/dist"
+        publicPath: "./dist"
     },
     devtool: "source-map",
     module: {
@@ -40,7 +40,7 @@ module.exports = {
     plugins: [
         new HtmlWebPackPlugin({
             template: "./src/index.html",
-            filename: "./index.html"
+            filename: "./../index.html"
         })
     ]
 };

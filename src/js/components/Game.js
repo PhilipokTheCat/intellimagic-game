@@ -210,7 +210,7 @@ export default class Game {
 
     answerQuestion(spellID, isRightAnswer){
         if (isRightAnswer) this.player.castSpell(spellID, this.calculateDamage.bind(this));
-        else this.toggleTurn();
+        else {this.player.spells.triggerGCD(); this.toggleTurn();}
     }
     
     startEnemyTurn() {

@@ -43,7 +43,7 @@
     },
     {
         "name": "Копьё молнии",
-        "HPValue": -120,
+        "HPValue": -85,
         "scatter": 0.2,
         "image": {
             "url": "./src/images/spells/lightning-lance/texture.png",
@@ -71,7 +71,7 @@
     },
     {
         "name": "Гроза",
-        "HPValue": -150,
+        "HPValue": -120,
         "scatter": 0.05,
         "image": {
             "url": "./src/images/spells/thunder/texture.png",

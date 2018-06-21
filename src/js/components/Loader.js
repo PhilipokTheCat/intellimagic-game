@@ -1,4 +1,5 @@
 import {createPathArrayFromResources, createPathAudioArray} from './../utils.js';
+import $ from "jquery";
 
 export default class Loader {
     constructor() {
@@ -18,7 +19,10 @@ export default class Loader {
         let obj = isAudio ? new Audio() : new Image();
         obj.addEventListener(isAudio ? 'canplay' : 'load', () => {
             this.resourceCache[url] = obj;
-            if (this.isReady()) this.readyCallback();
+            if (this.isReady()) {
+                const loader = $(".game-block__loader");
+                loader.fadeTo(500, 0, () => {loader.remove(); this.readyCallback();});
+            }
         });
         this.resourceCache[url] = false;
         obj.src = url;
