@@ -1,10 +1,10 @@
 [{
     "name" : "mathematicalOperations",
-    "description" : "Реши данный пример. "
+    "description" : "Реши данный пример."
 },
 {
     "name" : "translation",
-    "description" : "Переведи данное слово на английский язык: ",
+    "description" : "Переведи данное слово на английский язык:",
     "words" : [
         {
             "inputWord" : "Cat",
@@ -13,16 +13,75 @@
         {
             "inputWord" : "Dog",
             "translation" : ["собака","собачка","песик","пёс","пёсик"]
+        },
+        {
+            "inputWord" : "Target",
+            "translation" : ["цель","задача","мишень","объект","задание"]
+        },
+        {
+            "inputWord" : "Tear",
+            "translation" : ["слеза","слезинки","слезы","разрыв","разорвать"]
+        },
+        {
+            "inputWord" : "Tendency",
+            "translation" : ["тенденция","тенденции","склонность","стремление","привычка"]
+        },
+        {
+            "inputWord" : "Terrible",
+            "translation" : ["ужасный","страшный","жуткий","чудовищный","грозный"]
+        },
+        {
+            "inputWord" : "Wind",
+            "translation" : ["ветер","ветерок","дыхание","духовой","ветряной"]
+        },
+        {
+            "inputWord" : "Wisdom",
+            "translation" : ["мудрость","целесообразность","опыт","знания","разум"]
+        },
+        {
+            "inputWord" : "Youth",
+            "translation" : ["молодеж","молодость","юность","юноша","подросток"]
+        },
+        {
+            "inputWord" : "Actual",
+            "translation" : ["фактический","реальный","настоящий","действительный","текущий"]
+        },
+        {
+            "inputWord" : "Adult",
+            "translation" : ["взрослый","совершеннолетний"]
+        },
+        {
+            "inputWord" : "Advice",
+            "translation" : ["консультация","совет","рекомендации","рекомендация","уведомление"]
+        },
+        {
+            "inputWord" : "Air",
+            "translation" : ["воздух","атмосфера","эфир","кондиционер","дышать"]
+        },
+        {
+            "inputWord" : "Animal",
+            "translation" : ["животное","зверь","звериный","существо","зверушка"]
         }
     ]},
 {
     "name" : "speech",
-    "description" : " Введи слово, которое ты услышал(а) ",
-    "words" : ["dog","cat","hello","green","car","sky","spoon","plate","recognition","question","task"]
+    "description" : " Введи слово, которое ты услышал(а)",
+    "words" : ["dog","cat","hello","green","car","sky","spoon","plate",
+        "recognition","question","task","after","afternoon","again","against",
+        "age","agency","agenda","agent","aggressive","ago","agree","agreement",
+        "agricultural","exist","existence","existing","expand","expansion","expect",
+        "expectation","expense","expensive","experience","experiment","expert",
+        "explain","explanation","explode","length","less","lesson","myself",
+        "mystery","myth","naked","name","narrative","narrow","nation","national",
+        "native","natural","ongoing","onion","online","only","onto","open"]
 },
 {
     "name" : "dragAndDrop",
     "description" : " Составь слово из данных букв",
-    "words" : ["yellow","dog","cat","people","fish"]
+    "words" : ["yellow","dog","cat","people","fish","explode","length","less",
+        "native","natural","ongoing","onion","question","task","plate",
+        "expense","expensive","orange","overcome","paint","pair",
+        "peace","perfect","piano","platform","police","popular","reduce",
+        "region","river","screen","season","talk","team","target"]
 }
 ]
