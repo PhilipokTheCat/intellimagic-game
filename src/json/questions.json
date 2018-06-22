@@ -4,7 +4,7 @@
 },
 {
     "name" : "translation",
-    "description" : "Переведи данное слово на английский язык:",
+    "description" : "Переведи данное слово на русский язык:",
     "words" : [
         {
             "inputWord" : "Cat",
