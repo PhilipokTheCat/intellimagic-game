@@ -40,7 +40,7 @@
         },
         {
             "inputWord" : "Youth",
-            "translation" : ["молодеж","молодость","юность","юноша","подросток"]
+            "translation" : ["молодежь","молодость","юность","юноша","подросток"]
         },
         {
             "inputWord" : "Actual",
@@ -68,7 +68,7 @@
     "description" : " Введи слово, которое ты услышал(а)",
     "words" : ["dog","cat","hello","green","car","sky","spoon","plate",
         "recognition","question","task","after","afternoon","again","against",
-        "age","agency","agenda","agent","aggressive","ago","agree","agreement",
+        "age","agency", "agent","aggressive","ago","agree","agreement",
         "agricultural","exist","existence","existing","expand","expansion","expect",
         "expectation","expense","expensive","experience","experiment","expert",
         "explain","explanation","explode","length","less","lesson","myself",

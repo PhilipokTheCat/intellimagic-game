@@ -78,6 +78,20 @@
     }
 }
 
+@keyframes shake {
+    0% {background-position-x: 5px};
+    10% {background-position-x: -3px};
+    20% {background-position-x: 4px};
+    30% {background-position-x: -2px};
+    40% {background-position-x: 3px};
+    50% {background-position-x: -2px};
+    60% {background-position-x: 2px};
+    70% {background-position-x: -1px};
+    80% {background-position-x: 1px};
+    90% {background-position-x: -1px};
+    100% {background-position-x: 0px};
+}
+
 $base-width: 1365px;
 $base-height: 768px;
 $base-font-family: 'Neucha', 'Arial';
@@ -413,6 +427,10 @@ body {
     &--cast {
         animation: char-cast 2.5s 1;
     }
+
+    &--damage {
+        animation: shake 0.5s 1;
+    }
 }
 
 .enemy {
@@ -430,6 +448,10 @@ body {
 
     &--cast {
         animation: char-cast 2.5s 1;
+    }
+
+    &--damage {
+        animation: shake 0.5s 1;
     }
 }
 

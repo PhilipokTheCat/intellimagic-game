@@ -54,9 +54,11 @@ export default class RecordsEngine {
         const button = modalMarkup.find(".records__button");
         button.css({"background-image": "url(./src/images/ui/buttons.png)"});
         button.click(() => {
+            window.resources.sound.play("ui", "click");
+            window.resources.sound.play("ui", "start-game");
             button.off('click');
             modalMarkup.fadeTo(1000, 0, () => {modalMarkup.remove(); this.callback()});
-        })
+        }).mouseenter(() => window.resources.sound.play("ui", "hover"));
         return modalMarkup;
     }
 

@@ -2,7 +2,7 @@ import {Howler, Howl} from "howler";
 
 export default class Music {
     constructor(tracks) {
-        this.volume = 0.2;
+        this.volume = 0.5;
         this.tracksArr = tracks;
         this.tracksArr.forEach(el => {
             el.volume(this.volume);

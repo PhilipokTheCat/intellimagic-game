@@ -126,7 +126,9 @@ export default class Game {
             if (/^[a-zA-Zа-яА-Я0-9_\-.]{2,18}$/.test(name)) {
                 submitButton.off('click'); 
                 this.background.changeAnimationType();
-                markup.fadeTo(1000, 0, () => {
+                window.resources.sound.play("ui", "start-game");
+                window.resources.sound.play("ui", "hide");
+                markup.fadeTo(500, 0, () => {
                     this.player = new Player(name, 1, 100, window.resources.chars[currentChar]);
                     this.enemy = new Enemy(1);
                     markup.remove();
@@ -134,15 +136,17 @@ export default class Game {
                 });
             }
             else {
+                window.resources.sound.play("ui", "error");
                 const nameTitle = $("#name-title");
-                nameTitle.fadeTo(300, 0, () => {
-                    nameTitle.text("Неправильное имя!").addClass("char-block__title-text--err").fadeTo(500, 1);
+                nameTitle.fadeTo(200, 0, () => {
+                    nameTitle.text("Неправильное имя!").addClass("char-block__title-text--err").fadeTo(200, 1);
                 })
             }
         });
         markup.find("#name-input").keypress(
             (e) => {if (e.which === 13) submitButton.click();});
-        markup.fadeTo(1000, 1);
+        window.resources.sound.play("ui", "show");
+        markup.fadeTo(500, 1);
     }
 
     main() {
@@ -204,6 +208,7 @@ export default class Game {
                 spellTitle = $(`<p class="modal-layer__spell-title">${el.name}</p>`);
             if ((el.currentCooldown > 0) || (el.requiredLevel > this.player.getLevel())) spellIconWrapper.append(blockLayer);
             spellIconWrapper.append(spellIcon).append(spellTitle);
+            spellIconWrapper.mouseenter(() => {window.resources.sound.play("ui", "spell-hover");})
             spellsList.append(spellIconWrapper);
         })
         spellsList.click((event) => {
@@ -212,13 +217,15 @@ export default class Game {
                 const spell = this.player.spells.getSpellData(spellID);
                 if ((spell.requiredLevel > this.player.getLevel()) || (spell.currentCooldown > 0)) return;
                 spellsList.off("click");
+                window.resources.sound.play("ui", "spell-select");
                 $(".modal-layer__title").fadeTo(500, 0);
                 spellsList.fadeTo(500, 0, () => {spellsList.remove(); this.showQuestion(modalWindow, spellID)});
             }
         })
         modalWindow.append(spellsList).fadeTo(0, 0);
         this.modalLayer.append(modalWindow);
-        modalWindow.fadeTo(500, 1);
+        window.resources.sound.play("ui", "show");
+        modalWindow.fadeTo(300, 1);
     }
 
     showQuestion(modalWindow, spellID) {
@@ -265,13 +272,15 @@ export default class Game {
         const winText = $(`<p class="modal-layer__announce modal-layer__announce--player">Победа!</p>`).fadeTo(0, 0);
         this.player.receiveWinPoint();
         this.modalLayer.append(winText);
+        window.resources.sound.play("ui", "victory");
         winText.fadeTo(500, 1).delay(1000).fadeTo(500, 0, () => {winText.remove(); this.move()});
     }
 
     gameOver() {
         const gameOverText = $(`<p class="modal-layer__announce modal-layer__announce--enemy">Игра окончена</p>`).fadeTo(0, 0);
         this.modalLayer.append(gameOverText);
-        gameOverText.delay(500).fadeTo(500, 1).delay(2000).fadeTo(500, 0, () => {
+        window.resources.sound.play("ui", "loose");
+        gameOverText.delay(500).fadeTo(500, 1).delay(4000).fadeTo(500, 0, () => {
             gameOverText.remove();
             let ratings = new RecordsEngine(this.player.getName(), this.player.getKillsCount(), () => {this.restart()});
             let ratingsMarkup = ratings.init();
@@ -279,7 +288,7 @@ export default class Game {
             this.modalLayer.append(ratingsMarkup);
             ratingsMarkup.fadeTo(1000, 1);
         });
-        $(`.main-window`).delay(1000).fadeTo(1000, 0, () => {$(`.main-window`).remove()});
+        $(`.main-window`).delay(2000).fadeTo(1000, 0, () => {$(`.main-window`).remove()});
     }
 
     restart() {

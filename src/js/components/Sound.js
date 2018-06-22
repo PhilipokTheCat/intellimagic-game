@@ -2,7 +2,7 @@ export default class Sound {
     constructor (obj) {
         this.soundPathObj = obj;
         this.soundPathArr = [];
-        this.volume = 0.5;
+        this.volume = 1;
     }
 
     init() {

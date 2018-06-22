@@ -63,6 +63,7 @@ export default class Enemy {
         const note = $(`<p class="note note--${amount < 0 ? "damage" : "heal"}">${amount < 0 ? ("- " + (-amount)) : ("+ " + amount)}</p>`).fadeTo(0, 0);
         $(`#enemy`).append(note);
         note.fadeTo(500, 1).delay(1000).fadeTo(500, 0, () => {note.remove()});
+        if (amount < 0) this.getDisplay().addClass("enemy--damage").fadeTo(0, 1).delay(300).fadeTo(0, 1, () => {this.getDisplay().removeClass("enemy--damage")});
         $("#enemy-hp-bar").css({"width": `${(this.currentHP / this.maxHP) * 100}%`, "margin-left": `${100 - (this.currentHP / this.maxHP) * 100}%`});
         $("#enemy-hp-text").text(this.currentHP + ' / ' + this.maxHP);
     }  

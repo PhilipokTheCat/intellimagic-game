@@ -140,12 +140,14 @@ export default class QuestionsEngine{
 
     hideWindow(isRightAnswer) {
         const answerWindow = $(".answer-window");
-        answerWindow.fadeTo(500, 0, () => {
+        answerWindow.fadeTo(300, 0, () => {
             answerWindow.remove();
             const resultNote = $(`<p class="task-window__notification task-window__notification--${isRightAnswer ? "right" : "wrong"}">${isRightAnswer ? "Правильно!" : "Неправильно"}</p>`);
             this.mainWindow.append(resultNote);
-            resultNote.fadeTo(500, 1).delay(1200).fadeTo(0, 1, () => this.mainWindow.fadeTo(1000, 0, () => {this.mainWindow.remove(); this.callback(isRightAnswer)}));
-        })
+            if (isRightAnswer) window.resources.sound.play("ui", "right-answer")
+            else window.resources.sound.play("ui", "error");
+            resultNote.fadeTo(300, 1).delay(2000).fadeTo(0, 1, () => {this.mainWindow.fadeTo(600, 0, () => {this.mainWindow.remove(); this.callback(isRightAnswer);}), window.resources.sound.play("ui", "hide");});
+        });
     }
 
     createTranslationTask(){

@@ -12,7 +12,15 @@
     "ui": {
         "hover": "./src/audio/button-hover.ogg",
         "click": "./src/audio/button-click.ogg",
-        "show": "./src/audio/modal-show.ogg"
+        "show": "./src/audio/modal-show.ogg",
+        "hide": "./src/audio/modal-hide.ogg",
+        "victory": "./src/audio/victory.ogg",
+        "right-answer": "./src/audio/right-answer.ogg",
+        "spell-select": "./src/audio/spell-select.ogg",
+        "spell-hover": "./src/audio/spell-hover.ogg",
+        "error": "./src/audio/error.ogg",
+        "loose": "./src/audio/loose.ogg",
+        "start-game": "./src/audio/start-game.ogg"
     },
     "spells": {
         "fireball": {
