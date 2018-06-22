@@ -15,6 +15,7 @@ export default class QuestionsEngine{
         this.utterThis.voice = this.voice;
         this.utterThis.pitch = 1;
         this.utterThis.rate = 0.8;
+        this.utterThis.volume = 0.5;
         this.isWordSaid = false;
         this.mainWindow = modalWindow;
         this.callback = callback;
@@ -131,9 +132,9 @@ export default class QuestionsEngine{
                     else this.hideWindow(false);
                     break;
                 case 2 :
-                    this.chosenWord === currentEnteredData ? this.hideWindow(true) : this.hideWindow(false);
+                    this.chosenWord === currentEnteredData.toLowerCase() ? this.hideWindow(true) : this.hideWindow(false);
                 case 3 :
-                $('.word-wrapper__letter').text().toLowerCase() === this.chosenWord ? this.hideWindow(true) : this.hideWindow(false);
+                $('.word-wrapper__letter').text() === this.chosenWord ? this.hideWindow(true) : this.hideWindow(false);
             }
         });
     }

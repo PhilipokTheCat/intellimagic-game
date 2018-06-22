@@ -20,7 +20,8 @@
         "spell-hover": "./src/audio/spell-hover.ogg",
         "error": "./src/audio/error.ogg",
         "loose": "./src/audio/loose.ogg",
-        "start-game": "./src/audio/start-game.ogg"
+        "start-game": "./src/audio/start-game.ogg",
+        "battle-start": "./src/audio/battle-start.ogg"
     },
     "spells": {
         "fireball": {

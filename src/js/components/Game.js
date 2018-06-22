@@ -127,8 +127,7 @@ export default class Game {
                 submitButton.off('click'); 
                 this.background.changeAnimationType();
                 window.resources.sound.play("ui", "start-game");
-                window.resources.sound.play("ui", "hide");
-                markup.fadeTo(500, 0, () => {
+                markup.fadeTo(1000, 0, () => {
                     this.player = new Player(name, 1, 100, window.resources.chars[currentChar]);
                     this.enemy = new Enemy(1);
                     markup.remove();
@@ -149,8 +148,9 @@ export default class Game {
         markup.fadeTo(500, 1);
     }
 
-    main() {
+    main(isRestarted) {
         const gameWindow = $(`<div class="main-window"></div>`);
+        if (isRestarted) window.resources.music.play();
         gameWindow.append(this.player.init()).append(this.player.addSprite()).append(this.enemy.init()).append(this.enemy.addSprite());
         gameWindow.fadeTo(0, 0);
         this.mainBlock.append(gameWindow);
@@ -167,6 +167,7 @@ export default class Game {
 
     startBattle() {
         this.player.stopWalking();
+        window.resources.sound.play("ui", "battle-start");
         const battleStartText = $(`<p class="modal-layer__announce">Бой начинается!</p>`).fadeTo(0, 0);
         this.modalLayer.append(battleStartText);
         battleStartText.fadeTo(500, 1).delay(1000).fadeTo(500, 0, () => {battleStartText.remove(); this.toggleTurn()});
@@ -279,6 +280,7 @@ export default class Game {
     gameOver() {
         const gameOverText = $(`<p class="modal-layer__announce modal-layer__announce--enemy">Игра окончена</p>`).fadeTo(0, 0);
         this.modalLayer.append(gameOverText);
+        window.resources.music.stop();
         window.resources.sound.play("ui", "loose");
         gameOverText.delay(500).fadeTo(500, 1).delay(4000).fadeTo(500, 0, () => {
             gameOverText.remove();
@@ -295,6 +297,6 @@ export default class Game {
         this.player = new Player(this.player.getName(), 1, 100, this.player.charSprite);
         this.enemy = new Enemy(1);
         this.isPlayerTurn = false;
-        this.background.changeLayers(() => {this.main();})
+        this.background.changeLayers(() => {this.main(true);});
     }
 }

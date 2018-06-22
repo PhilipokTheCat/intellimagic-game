@@ -79,16 +79,16 @@
 }
 
 @keyframes shake {
-    0% {background-position-x: 5px};
-    10% {background-position-x: -3px};
-    20% {background-position-x: 4px};
-    30% {background-position-x: -2px};
-    40% {background-position-x: 3px};
-    50% {background-position-x: -2px};
-    60% {background-position-x: 2px};
-    70% {background-position-x: -1px};
-    80% {background-position-x: 1px};
-    90% {background-position-x: -1px};
+    0% {background-position-x: -3px};
+    10% {background-position-x: 4px};
+    20% {background-position-x: -2px};
+    30% {background-position-x: 3px};
+    40% {background-position-x: -2px};
+    50% {background-position-x: 2px};
+    60% {background-position-x: -1px};
+    70% {background-position-x: 1px};
+    80% {background-position-x: -1px};
+    90% {background-position-x: 1px};
     100% {background-position-x: 0px};
 }
 
@@ -398,7 +398,7 @@ body {
     width: 100%;
     text-align: center;
     font-family: $base-font-family;
-    font-size: 32px;
+    font-size: 40px;
     font-weight: bold;
     text-shadow: #000 1px 1px 1px;
     animation: note-hoist 2s 1 ease-out;
@@ -466,12 +466,13 @@ body {
 
     &__announce {
         font-family: $base-font-family;
-        font-size: 70px;
+        font-size: 90px;
         text-align: center;
         color: #f70;
         text-shadow: #000 3px 3px 3px;
         text-transform: uppercase;
-        margin-bottom: 100px;
+        margin-bottom: 85px;
+        font-weight: bold;
 
         &--player {
             color: #7f0;

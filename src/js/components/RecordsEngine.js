@@ -57,7 +57,8 @@ export default class RecordsEngine {
             window.resources.sound.play("ui", "click");
             window.resources.sound.play("ui", "start-game");
             button.off('click');
-            modalMarkup.fadeTo(1000, 0, () => {modalMarkup.remove(); this.callback()});
+            modalMarkup.fadeTo(500, 0, () => modalMarkup.remove());
+            this.callback();
         }).mouseenter(() => window.resources.sound.play("ui", "hover"));
         return modalMarkup;
     }

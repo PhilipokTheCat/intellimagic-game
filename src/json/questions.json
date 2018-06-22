@@ -11,10 +11,6 @@
             "translation" : ["кот","кошка","котик","котенок","котёнок"]
         },
         {
-            "inputWord" : "Dog",
-            "translation" : ["собака","собачка","песик","пёс","пёсик"]
-        },
-        {
             "inputWord" : "Target",
             "translation" : ["цель","задача","мишень","объект","задание"]
         },
@@ -44,7 +40,7 @@
         },
         {
             "inputWord" : "Actual",
-            "translation" : ["фактический","реальный","настоящий","действительный","текущий"]
+            "translation" : ["актуальный", "фактический","реальный","настоящий","действительный","текущий"]
         },
         {
             "inputWord" : "Adult",
@@ -80,7 +76,7 @@
     "description" : " Составь слово из данных букв",
     "words" : ["yellow","dog","cat","people","fish","explode","length","less",
         "native","natural","ongoing","onion","question","task","plate",
-        "expense","expensive","orange","overcome","paint","pair",
+        "expense","orange","overcome","paint","pair",
         "peace","perfect","piano","platform","police","popular","reduce",
         "region","river","screen","season","talk","team","target"]
 }
